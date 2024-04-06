@@ -24,7 +24,7 @@ export default function LoginForm () {
     async function login(event) {
         event.preventDefault();
         setIsDisabled(true)
-        fetch(process.env.PUBLIC_APP_URL + '/api/v1/auth', {
+        fetch( 'https://api.yakutianoracle.ru/api/v1/auth', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
