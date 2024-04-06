@@ -38,7 +38,7 @@ export default function BuySubscription() {
                 autoClose: 3
             }, {
                 onSuccess: function(options) { // success
-                    toast('Успешно', {
+                    toast('Данные для входа были отправлены на почту', {
                         style: {background: 'green', color: 'white'}
                     })
                 },

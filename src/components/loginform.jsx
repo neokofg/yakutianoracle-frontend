@@ -11,11 +11,8 @@ export default function LoginForm () {
     const [isDisabled, setIsDisabled] = useState(false);
 
     function handleInputChange() {
-        const email = emailRef.current.value; // Получаем значение электронной почты из ссылки
-        const password = passwordRef.current.value; // Получаем значение пароля из ссылки
-
         // Проверяем, заполнены ли оба поля
-        if (email && password) {
+        if (emailRef.current.value && passwordRef.current.value) {
             setButtonColor("#008080"); // Если оба поля заполнены, меняем цвет кнопки
             setTextColor("white")
 
@@ -26,27 +23,21 @@ export default function LoginForm () {
     }
     async function login(event) {
         event.preventDefault();
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
-
         setIsDisabled(true)
-
-
-        fetch('http://localhost:8000/api/v1/auth', {
+        fetch(process.env.PUBLIC_APP_URL + '/api/v1/auth', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: email,
-                password: password
+                email: emailRef.current.value,
+                password: passwordRef.current.value
             }),
         })
             .then(async response => {
                 // Обработка ответа
                 if (response.ok) {
                     const data = await response.json()
-                    console.log(data);
                     if(data.status == 'false') {
                         toast('Неверная почта или пароль', {
                             style: {background: 'red', color: 'white'}

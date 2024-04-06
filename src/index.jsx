@@ -21,7 +21,7 @@ const email = localStorage.getItem('email');
 const id = localStorage.getItem('id');
 function getUser() {
     if(token && !name || !email || !id) {
-        fetch('http://localhost:8000/api/v1/user', {
+        fetch(process.env.PUBLIC_APP_URL + '/api/v1/user', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
