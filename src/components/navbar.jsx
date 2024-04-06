@@ -6,11 +6,28 @@ export default function Navbar () {
     function Login () {
         if(token) {
             return (
-                <a href={'/profile'} className={"text-black"}>Профиль</a>
+                <a href={'/profile'} className={"text-black rounded-[18px] bg-white py-3 px-3"}>
+                    <img src="/profile.svg" alt=""/>
+                </a>
             );
         } else {
             return (
                 <a href={'/login'} className={"text-black"}>Вход</a>
+            );
+        }
+    }
+
+    function Map() {
+        if(token) {
+            return (
+                <div>
+                    <a href={'/map'} className={"rounded-[14px] bg-[#008080] py-3 px-7 mr-4"}>Открыть карту</a>
+                    <a href={'/statistics'} className={"rounded-[14px] bg-[#008080] py-3 px-7"}>Открыть статистику</a>
+                </div>
+            );
+        } else {
+            return (
+                <a href={'/buy'} className={"rounded-[14px] bg-[#008080] py-3 px-7"}>Купить подписку</a>
             );
         }
     }
@@ -23,8 +40,10 @@ export default function Navbar () {
                 <p>О сервисе</p>
                 <p>Функционал</p>
                 <p>Цена</p>
-                <a href={'/buy'} className={"rounded-[14px] bg-[#008080] py-3 px-7"}>Купить подписку</a>
-                <Login />
+                <div className={"flex justify-center items-center gap-4"}>
+                    <Map />
+                    <Login />
+                </div>
             </div>
         </div>
     );

@@ -31,7 +31,7 @@ export default function BuySubscription() {
             { //options
                 publicId: 'pk_ca57915d30d7bfa1ca41583e5c5ab', //id из личного кабинета
                 description: 'Покупка подписки Yakutian Oracle', //назначение
-                amount: 12000, //сумма
+                amount: 10000, //сумма
                 currency: 'RUB', //валюта
                 accountId: emailRef.current.value, //идентификатор плательщика (необязательно)
                 skin: "modern", //дизайн виджета (необязательно)

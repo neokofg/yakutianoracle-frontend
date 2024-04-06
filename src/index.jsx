@@ -7,6 +7,8 @@ import './App.css';
 import BuySubscription from "./pages/BuySubscription";
 import Profile from "./pages/Profile";
 import toast from "react-hot-toast";
+import Map from "./pages/Map";
+import Statistics from "./pages/Statistics";
 
 function disableCtrlScrollZoom(event) {
     // Проверяем, нажата ли клавиша Ctrl (event.ctrlKey) и является ли событие прокруткой колесика мыши (event.type === 'wheel')
@@ -62,11 +64,19 @@ const router = createBrowserRouter([
     {
         path: 'profile',
         element: <Profile />
+    },
+    {
+        path: 'map',
+        element: <Map />
+    },
+    {
+        path: 'statistics',
+        element: <Statistics />
     }
 ]);
 
 // Добавляем обработчики событий на весь документ
-// document.addEventListener('wheel', disableCtrlScrollZoom, { passive: false });
+document.addEventListener('wheel', disableCtrlScrollZoom, { passive: false });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
