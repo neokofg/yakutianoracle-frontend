@@ -34,7 +34,6 @@ export default function BuySubscription() {
                 amount: 12000, //сумма
                 currency: 'RUB', //валюта
                 accountId: emailRef.current.value, //идентификатор плательщика (необязательно)
-                invoiceId: '1234567', //номер заказа  (необязательно)
                 skin: "modern", //дизайн виджета (необязательно)
                 autoClose: 3
             }, {
