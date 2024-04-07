@@ -36,10 +36,10 @@ export default function Navbar () {
         <div className={"flex justify-between items-center px-10 mt-4 mb-2"}>
             <a href={'/'}><img src={logo} className={"w-[250px]"} alt="Yakutian Oracle"/></a>
             <div className={"flex items-center gap-6 mr-6"}>
-                <p>Почему мы</p>
-                <p>О сервисе</p>
-                <p>Функционал</p>
-                <p>Цена</p>
+                <a href={'/#why'} className={'text-black'}>Почему мы</a>
+                <a href={'/#how'} className={'text-black'}>О сервисе</a>
+                <a href={'/#func'} className={'text-black'}>Функционал</a>
+                <a href={'/#price'} className={'text-black'}>Цена</a>
                 <div className={"flex justify-center items-center gap-4"}>
                     <Map />
                     <Login />
