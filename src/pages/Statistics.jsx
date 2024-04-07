@@ -66,7 +66,7 @@ export default function Statistics() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + '1|EHAFJsjlu3X2p6cGT1PNkgGQtrildyTVIHzXsHZt18812ed9'
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
         })
             .then(async response => {
