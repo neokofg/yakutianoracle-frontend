@@ -121,7 +121,7 @@ export default function Statistics() {
                     bus_stations: data.transports.bus_stations,
                     road_nearby: data.transports.road_nearby
                 })
-                setMainRating(data.properties.rating)
+                setMainRating(data.rating)
             })
     }
 
