@@ -2,10 +2,12 @@ import {useNavigate} from "react-router-dom";
 import Select from "react-select";
 import {useEffect, useState} from "react";
 import ReactApexChart from 'react-apexcharts';
+import Navbar from "../components/navbar";
 
 export default function Statistics() {
     const navigation = useNavigate()
     const [cities,setCities] = useState()
+    const [mainRating, setMainRating] = useState(0)
     const [series, setSeries] = useState([
         {
             name: 'Средняя температура',
@@ -114,26 +116,30 @@ export default function Statistics() {
                 }));
                 setDonutSeries(Object.values(categoryCounts));
                 setTransports({
-                    rating: data.transports[0].rating,
-                    airport_nearby: data.transports[0].airport_nearby,
-                    bus_stations: data.transports[0].bus_stations,
-                    road_nearby: data.transports[0].road_nearby
+                    rating: data.transports.rating,
+                    airport_nearby: data.transports.airport_nearby,
+                    bus_stations: data.transports.bus_stations,
+                    road_nearby: data.transports.road_nearby
                 })
+                setMainRating(data.properties.rating)
             })
     }
 
     return (
         <div className={"text-black"}>
+            <Navbar/>
+            {/*<ReactApexChart options={treeMapOptions} series={treeMapSeries} type="treemap" height={350} />*/}
             <Select className={"w-1/2 mx-auto my-10"} onChange={getCity} options={cities} />
             <ReactApexChart options={options} series={series} type="line" height={350} />
             <div className={"flex"}>
                 <ReactApexChart options={donutOptions} series={donutSeries} type="donut" width={1000} height={350} />
-                <div>
+                <div className={'px-10'}>
                     <h3 className={"text-[32px]"}>Рейтинг транспортной доступности:</h3>
                     <p>Рейтинг доступности: {transports.rating}</p>
                     <p>Есть ли рядом аэропорт: {transports.airport_nearby ? 'Да' : 'Нет'}</p>
                     <p>Количество автобусных остановок: {transports.bus_stations}</p>
                     <p>Если рядом главная дорога: {transports.road_nearby  ? 'Да' : 'Нет'}</p>
+                    <h1 className={'mt-10 text-[64px]'}>Потенциал: {mainRating}</h1>
                 </div>
             </div>
         </div>
